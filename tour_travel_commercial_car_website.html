@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tour & Travel Car — Book Your Ride</title>
+  <meta name="description" content="Commercial car for tour & travel — bookings, pricing, contact.">
+  <style>
+    :root{--accent:#1e88e5;--dark:#222;--muted:#666}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.4;margin:0;color:var(--dark)}
+    header{background:linear-gradient(90deg,var(--accent),#1976d2);color:#fff;padding:28px 18px}
+    .container{max-width:1100px;margin:0 auto;padding:18px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:64px;height:40px;object-fit:cover;border-radius:6px}
+    .brand h1{font-size:20px;margin:0}
+    nav{margin-top:10px}
+    nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-right:14px;font-weight:600}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;padding:28px 0}
+    .hero h2{font-size:32px;margin:0 0 12px}
+    .hero p{margin:0 0 18px;color:var(--muted)}
+    .cta{display:flex;gap:12px}
+    .btn{background:#fff;color:var(--accent);padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700}
+    .btn.secondary{background:transparent;border:2px solid rgba(255,255,255,0.2);color:#fff}
+
+    .card{background:#fff;border-radius:10px;padding:16px;box-shadow:0 6px 20px rgba(20,20,50,0.06)}
+    form label{display:block;margin:8px 0 6px;font-size:13px;color:var(--muted)}
+    input,select,textarea{width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .full{grid-column:1/-1}
+    .gallery{display:flex;gap:8px;overflow:auto}
+    .gallery img{width:200px;height:120px;object-fit:cover;border-radius:8px}
+
+    footer{background:#0f1724;color:#fff;padding:18px;margin-top:28px}
+    footer .row{display:flex;justify-content:space-between;align-items:center}
+    .small{font-size:13px;color:#9aa3b2}
+
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .gallery img{width:140px;height:90px}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="vehicle">
+        <div>
+          <h1>Tour & Travel — Commercial Car</h1>
+          <div style="font-size:13px;opacity:.95">Premium car available for tours, transfers & corporate travel</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#book">Book Now</a>
+        <a href="#fleet">Fleet</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h2>Hire this commercial car for your Tours & Travel</h2>
+        <p>Comfortable seating, reliable driver, and flexible pickup/drop options — perfect for outstation trips, city tours, airport transfers and corporate travel.</p>
+        <div class="cta">
+          <a class="btn" href="#book">Book Now</a>
+          <a class="btn secondary" href="#contact">Call / WhatsApp</a>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:14px;">
+          <div class="card" style="flex:1">
+            <h3 style="margin:0 0 8px">Quick Info</h3>
+            <div class="small">Seats: <strong>6+ Luggage</strong></div>
+            <div class="small">Fuel: <strong>Diesel</strong></div>
+            <div class="small">AC: <strong>Yes</strong></div>
+            <div class="small">Driver Included</div>
+          </div>
+
+          <div class="card" style="width:220px;text-align:center;align-self:center">
+            <div style="font-size:13px;color:var(--muted)">Per Day Starting From</div>
+            <div style="font-size:22px;font-weight:800;margin-top:6px">₹ 4,500</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px">(negotiable for long trips)</div>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h3 style="margin-top:0">Booking Form</h3>
+          <form id="bookingForm">
+            <div class="grid">
+              <div>
+                <label>Name</label>
+                <input type="text" id="name" required placeholder="Your full name">
+              </div>
+              <div>
+                <label>Phone / WhatsApp</label>
+                <input type="tel" id="phone" required placeholder="e.g. +91-98xxxxxxx">
+              </div>
+              <div>
+                <label>Pickup Location</label>
+                <input id="pickup" required placeholder="City / Address">
+              </div>
+              <div>
+                <label>Drop Location</label>
+                <input id="drop" required placeholder="City / Address">
+              </div>
+              <div>
+                <label>Pickup Date</label>
+                <input type="date" id="date" required>
+              </div>
+              <div>
+                <label>Pickup Time</label>
+                <input type="time" id="time" required>
+              </div>
+              <div>
+                <label>Passengers</label>
+                <input type="number" id="pax" min="1" value="4">
+              </div>
+              <div>
+                <label>Vehicle</label>
+                <select id="vehicle">
+                  <option>Commercial Car - 6 Seater</option>
+                  <option>Mini Bus (on request)</option>
+                </select>
+              </div>
+              <div class="full">
+                <label>Message / Requirements</label>
+                <textarea id="message" rows="3" placeholder="Any special requests (pick-up time flexibility, stops, driver language, etc)"></textarea>
+              </div>
+            </div>
+
+            <div style="margin-top:10px;display:flex;gap:10px">
+              <button type="submit" class="btn">Request Booking</button>
+              <button type="button" class="btn secondary" onclick="contactNow()">Contact via WhatsApp</button>
+            </div>
+            <div id="status" style="margin-top:10px;color:green;font-weight:600"></div>
+          </form>
+        </div>
+      </aside>
+    </section>
+
+    <section id="fleet" style="margin-top:18px">
+      <h3>Gallery & Fleet</h3>
+      <div class="gallery" style="margin-top:10px">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="car1">
+        <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="car2">
+        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="car3">
+      </div>
+    </section>
+
+    <section id="pricing" style="margin-top:18px">
+      <h3>Pricing (Sample)</h3>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
+        <div class="card" style="flex:1;min-width:220px">
+          <strong>City Tours</strong>
+          <div class="small">Starts at ₹ 2,000 / half day</div>
+        </div>
+        <div class="card" style="flex:1;min-width:220px">
+          <strong>Outstation (Per Day)</strong>
+          <div class="small">Starts at ₹ 4,500 / day</div>
+        </div>
+        <div class="card" style="flex:1;min-width:220px">
+          <strong>Airport Transfer</strong>
+          <div class="small">Flat ₹ 1,200 (within city)</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:18px;margin-bottom:18px;display:grid;grid-template-columns:1fr 320px;gap:12px">
+      <div>
+        <h3>Contact & Location</h3>
+        <p class="small">To confirm booking, call or WhatsApp: <strong id="phoneDisplay">+91-98xxxxxxx</strong></p>
+        <p class="small">Email: <strong>bookings@example.com</strong></p>
+        <div style="margin-top:12px" class="card">
+          <h4 style="margin:0 0 8px">Map</h4>
+          <!-- Replace the src below with real Google Maps embed link -->
+          <iframe src="https://www.google.com/maps?q=delhi&output=embed" width="100%" height="220" style="border:0;border-radius:8px"></iframe>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4 style="margin-top:0">Quick Actions</h4>
+        <p class="small">Open WhatsApp quick message:</p>
+        <button class="btn" style="width:100%;margin-bottom:8px" onclick="contactNow()">WhatsApp Owner</button>
+        <a class="btn secondary" style="display:block;text-align:center" href="tel:+9198xxxxxxx">Call Now</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div>
+          <div style="font-weight:700">Tour & Travel — Commercial Car</div>
+          <div class="small">Reliable, insured, experienced driver</div>
+        </div>
+        <div class="small">© " + new Date().getFullYear() + " All rights reserved</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Booking: compose mailto with details (simple serverless approach)
+    document.getElementById('bookingForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('name').value;
+      var phone = document.getElementById('phone').value;
+      var pickup = document.getElementById('pickup').value;
+      var drop = document.getElementById('drop').value;
+      var date = document.getElementById('date').value;
+      var time = document.getElementById('time').value;
+      var pax = document.getElementById('pax').value;
+      var vehicle = document.getElementById('vehicle').value;
+      var message = document.getElementById('message').value;
+
+      var subject = encodeURIComponent('Booking Request: ' + name + ' - ' + date);
+      var body = encodeURIComponent(
+        'Name: ' + name + '\nPhone: ' + phone + '\nPickup: ' + pickup + '\nDrop: ' + drop + '\nDate: ' + date + '\nTime: ' + time + '\nPassengers: ' + pax + '\nVehicle: ' + vehicle + '\nMessage: ' + message
+      );
+
+      // change bookings@example.com to your real email
+      var mailto = 'mailto:bookings@example.com?subject=' + subject + '&body=' + body;
+      window.location.href = mailto;
+      document.getElementById('status').textContent = 'Opening your email app to send booking — or use WhatsApp button.';
+    });
+
+    function contactNow(){
+      var phone = '+9198xxxxxxx'; // replace with real WhatsApp number
+      var text = encodeURIComponent('Hello, I want to book the commercial car. Please assist.');
+      var url = 'https://wa.me/' + phone.replace(/[^0-9]/g,'') + '?text=' + text;
+      window.open(url,'_blank');
+    }
+  </script>
+</body>
+</html>
